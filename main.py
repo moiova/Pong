@@ -4,16 +4,7 @@ from ball import Ball
 import time
 
 # TODO create the GUI from multiple components:
-#  break down the components into separate classes
-#  two paddles consisting of two turtles
-#  one ball consisting of one turtle
 #  one scoreboard with a net
-
-# TODO create paddle and make it onkey movable
-
-# TODO create the ball and make it movable
-
-# TODO detect ball collision with wall and make it bounce
 
 # TODO detect collision with paddle and make the ball bounce back
 
@@ -44,6 +35,11 @@ while not game_over:
     time.sleep(0.1)
     screen.update()
     ball.move()
+
+    # detect collision with wall
+    if ball.ycor() < -290 or ball.ycor() > 290:
+        ball.bounce()
+
 
 
 screen.exitonclick()
