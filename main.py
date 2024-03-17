@@ -4,11 +4,6 @@ from ball import Ball
 from scoreboard import Scoreboard
 import time
 
-# TODO create the GUI from multiple components:
-#  one scoreboard with a net
-
-# TODO create the scoreboard and keep score
-
 screen = Screen()
 screen.setup(width=800, height=600)
 screen.title("Pong")
