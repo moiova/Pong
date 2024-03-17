@@ -6,8 +6,6 @@ import time
 # TODO create the GUI from multiple components:
 #  one scoreboard with a net
 
-# TODO detect collision with paddle and make the ball bounce back
-
 # TODO detect collision with left and right wall (paddle miss)
 
 # TODO create the scoreboard and keep score
@@ -40,6 +38,14 @@ while not game_over:
     if ball.ycor() < -290 or ball.ycor() > 290:
         ball.bounce()
 
+    # detect ball collision with paddle
+    if ball.distance(r_paddle) < 40 and ball.xcor() > 330:
+        ball.bounce_paddle()
 
+    elif ball.distance(l_paddle) < 40 and ball.xcor() < -330:
+        ball.bounce_paddle()
+
+    else:
+        pass
 
 screen.exitonclick()
