@@ -1,8 +1,9 @@
 from turtle import Screen, Turtle
+from paddle import Paddle
 
 # TODO create the GUI from multiple components:
 #  break down the components into separate classes
-#  two paddles consisting of two turtles build of two segment turtles
+#  two paddles consisting of two turtles
 #  one ball consisting of one turtle
 #  one scoreboard with a net
 
@@ -24,6 +25,9 @@ screen.title("Pong")
 screen.bgcolor("black")
 screen.tracer(0)  # animation off
 
+
+paddle = Paddle()
 screen.update()
+
 
 screen.exitonclick()
