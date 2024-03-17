@@ -25,9 +25,17 @@ screen.title("Pong")
 screen.bgcolor("black")
 screen.tracer(0)  # animation off
 
-
 paddle = Paddle()
-screen.update()
+
+screen.listen()
+
+screen.onkey(paddle.up, "Up")
+screen.onkey(paddle.down, "Down")
+
+game_over = False
+while not game_over:
+
+    screen.update()
 
 
-screen.exitonclick()
+    screen.exitonclick()
