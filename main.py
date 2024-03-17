@@ -1,12 +1,11 @@
 from turtle import Screen
 from paddle import Paddle
 from ball import Ball
+from scoreboard import Scoreboard
 import time
 
 # TODO create the GUI from multiple components:
 #  one scoreboard with a net
-
-# TODO detect collision with left and right wall (paddle miss)
 
 # TODO create the scoreboard and keep score
 
@@ -27,10 +26,11 @@ screen.onkey(l_paddle.up, "w")
 screen.onkey(l_paddle.down, "s")
 
 ball = Ball()
+scoreboard = Scoreboard()
 
 game_over = False
 while not game_over:
-    time.sleep(0.1)
+    time.sleep(ball.move_speed)
     screen.update()
     ball.move()
 
@@ -39,13 +39,15 @@ while not game_over:
         ball.bounce()
 
     # detect ball collision with paddle
-    if ball.distance(r_paddle) < 40 and ball.xcor() > 330:
+    if ball.distance(r_paddle) < 40 and ball.xcor() > 330 or ball.distance(l_paddle) < 40 and ball.xcor() < -330:
         ball.bounce_paddle()
 
-    elif ball.distance(l_paddle) < 40 and ball.xcor() < -330:
-        ball.bounce_paddle()
-
-    else:
-        pass
+    # detect collision with left and right wall (paddle miss)
+    if ball.xcor() > 390:
+        ball.reset_position()
+        scoreboard.l_point()
+    elif ball.xcor() < -390:
+        ball.reset_position()
+        scoreboard.r_point()
 
 screen.exitonclick()
