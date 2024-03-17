@@ -1,5 +1,7 @@
 from turtle import Screen
 from paddle import Paddle
+from ball import Ball
+import time
 
 # TODO create the GUI from multiple components:
 #  break down the components into separate classes
@@ -35,10 +37,13 @@ screen.onkey(r_paddle.down, "Down")
 screen.onkey(l_paddle.up, "w")
 screen.onkey(l_paddle.down, "s")
 
+ball = Ball()
+
 game_over = False
 while not game_over:
-
+    time.sleep(0.1)
     screen.update()
+    ball.move()
 
 
 screen.exitonclick()
