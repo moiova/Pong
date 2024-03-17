@@ -7,18 +7,18 @@ DISTANCE = 20
 
 # create and move paddle
 class Paddle(Turtle):
-    def __init__(self):
+    def __init__(self, xcor):
         super().__init__()
-        super().penup()
-        super().shape("square")
-        super().color("white")
-        super().shapesize(stretch_wid=5, stretch_len=1)
-        super().goto(x=380, y=0)
+        self.penup()
+        self.shape("square")
+        self.color("white")
+        self.shapesize(stretch_wid=5, stretch_len=1)
+        self.goto(x=xcor, y=0)
 
     def up(self):
-        new_y = super().ycor() + DISTANCE
-        super().goto(super().xcor(), new_y)
+        new_y = self.ycor() + DISTANCE
+        self.goto(self.xcor(), new_y)
 
     def down(self):
-        new_y = super().ycor() - DISTANCE
-        super().goto(super().xcor(), new_y)
+        new_y = self.ycor() - DISTANCE
+        self.goto(self.xcor(), new_y)
