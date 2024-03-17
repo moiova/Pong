@@ -1,4 +1,4 @@
-from turtle import Screen, Turtle
+from turtle import Screen
 from paddle import Paddle
 
 # TODO create the GUI from multiple components:
@@ -25,12 +25,15 @@ screen.title("Pong")
 screen.bgcolor("black")
 screen.tracer(0)  # animation off
 
-paddle = Paddle()
+l_paddle = Paddle(xcor=-380)
+r_paddle = Paddle(xcor=380)
 
 screen.listen()
 
-screen.onkey(paddle.up, "Up")
-screen.onkey(paddle.down, "Down")
+screen.onkey(r_paddle.up, "Up")
+screen.onkey(r_paddle.down, "Down")
+screen.onkey(l_paddle.up, "w")
+screen.onkey(l_paddle.down, "s")
 
 game_over = False
 while not game_over:
@@ -38,4 +41,4 @@ while not game_over:
     screen.update()
 
 
-    screen.exitonclick()
+screen.exitonclick()
