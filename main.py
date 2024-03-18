@@ -15,10 +15,10 @@ r_paddle = Paddle(xcor=380)
 
 screen.listen()
 
-screen.onkey(r_paddle.up, "Up")
-screen.onkey(r_paddle.down, "Down")
-screen.onkey(l_paddle.up, "w")
-screen.onkey(l_paddle.down, "s")
+screen.onkeypress(r_paddle.up, "Up")
+screen.onkeypress(r_paddle.down, "Down")
+screen.onkeypress(l_paddle.up, "w")
+screen.onkeypress(l_paddle.down, "s")
 
 ball = Ball()
 scoreboard = Scoreboard()
